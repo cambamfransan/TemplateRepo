@@ -1,18 +1,17 @@
 language: cpp
 sudo: required
 
-matrix:
-  include:
-    # works on Precise and Trusty
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-6.4
-      env:
-         - MATRIX_EVAL="CC=gcc-6.1 && CXX=g++-6.1"
+script:
+  - sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
+  - gcc --version
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-6
+    - g++-6
+    - cmake
 
 before_install:
 # - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
@@ -20,15 +19,10 @@ before_install:
 # - sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
 # - sudo apt-get install qt5-default qttools5-dev-tools
  
-install:
-  - wget https://github.com/google/protobuf/releases/download/v3.0.0/protobuf-cpp-3.0.0.tar.gz
-  - tar -xzvf protobuf-cpp-3.0.0.tar.gz
-  - pushd protobuf-3.0.0 && ./configure --prefix=/usr && make && sudo make install && popd
-
-addons:
-    apt:
-        packages:
-         - cmake
+#install:
+#  - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
+#  - tar -xzvf protobuf-cpp-3.4.0.tar.gz
+#  - pushd protobuf-3.4.0 && ./configure --prefix=/usr && make && sudo make install && popd
 
 script:
 # - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
