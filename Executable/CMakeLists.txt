@@ -1,6 +1,6 @@
 set(exe_name Executable)
 
-set(${exe_name}_deps Lib)
+set(${exe_name}_deps ProtoFiles)
 
 set(${exe_name}_srcs
   main.cpp

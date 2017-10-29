@@ -8,10 +8,10 @@ before_install:
 # - sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
 # - sudo apt-get install qt5-default qttools5-dev-tools
  
-#install:
-#  - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
-#  - tar -xzvf protobuf-cpp-3.4.0.tar.gz
-#  - pushd protobuf-3.4.0 && ./configure --prefix=/usr && make && sudo make install && popd
+install:
+  - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
+  - tar -xzvf protobuf-cpp-3.4.0.tar.gz
+  - pushd protobuf-3.4.0 && ./configure --prefix=/usr && make && sudo make install && popd
 
 addons:
     apt:
@@ -29,4 +29,5 @@ script:
  - mkdir _bld && cd _bld
  - cmake ../TemplateRepo/
  - make
+ - make install
  
