@@ -7,6 +7,7 @@ set(CMAKE_BUILD_TYPE "Release" CACHE STRING
   FORCE)
 project(TemplateRepo)
 include (version.cmake)
+include(CheckCXXCompilerFlag)
 
 set(CMAKE_CXX_STANDARD 14)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
