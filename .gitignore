@@ -1,0 +1,6 @@
+*.aux
+*.bak0
+*.bak1
+*.synctex.gz
+*.toc
+*indent.log
