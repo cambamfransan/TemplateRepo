@@ -1,6 +1,18 @@
 language: cpp
-compilers: gcc
 sudo: required
+
+matrix:
+  include:
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6.4
+      env:
+         - MATRIX_EVAL="CC=gcc-6.1 && CXX=g++-6.1"
 
 before_install:
 # - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
