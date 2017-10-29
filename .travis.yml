@@ -37,6 +37,7 @@ script:
 # - sudo apt-get install libprotobuf-dev
 # - sudo ldconfig
 # - protoc --version
+ - gcc --version
  - cd ../
  - mkdir _bld && cd _bld
  - cmake ../TemplateRepo/
