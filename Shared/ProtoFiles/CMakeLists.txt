@@ -31,6 +31,6 @@ target_include_directories(${lib_name} PUBLIC ${CMAKE_BINARY_DIR}/Shared ${Proto
 
 MESSAGE(STATUS "Deps: " ${${lib_name}_deps})
 MESSAGE(STATUS "Dir: " ${Protobuf_INCLUDE_DIR})
-MESSAGE(STATUS "Dirs: " ${Protobuf_INCLUDE_DIRS})
+MESSAGE(STATUS "Libs: " ${Protobuf_LIBRARIES})
 
 set_property(TARGET ${lib_name} PROPERTY FOLDER ${folder})
