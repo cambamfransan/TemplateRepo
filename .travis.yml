@@ -39,7 +39,14 @@ install:
   - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
   - tar -xzvf protobuf-cpp-3.4.0.tar.gz
   - pushd protobuf-3.4.0 && ./configure --prefix=/usr && make && sudo make install && popd
-
+  - sudo apt-get install autoconf
+  - sudo apt-get install automake
+  - sudo apt-get install libtool
+  - autoconf --version
+  - automake --version
+  - libtool --version
+  
+  
 script:
 # - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
 # - tar -xzvf protobuf-cpp-3.4.0.tar.gz
