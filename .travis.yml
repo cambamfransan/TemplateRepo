@@ -23,7 +23,7 @@ install:
 script:
  - cd ../
  - mkdir _bld && cd _bld
- - ./../cmake-3.10.0-rc3-Linux-x86_64/bin/cmake ../TemplateRepo/
+ - ./../TemplateRepo/cmake-3.10.0-rc3-Linux-x86_64/bin/cmake ../TemplateRepo/
  - make
  - make install
  
