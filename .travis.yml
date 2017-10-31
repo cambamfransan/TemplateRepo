@@ -12,9 +12,11 @@ install:
   - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
   - tar -xzvf protobuf-cpp-3.4.0.tar.gz
   - pushd protobuf-3.4.0 && ./configure --prefix=/usr && make && sudo make install && popd
-  - CMAKE_URL="https://cmake.org/files/v3.9/cmake-3.9.0-Linux-x86_64.tar.gz"
-  - mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
-  - export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+  - tar https://cmake.org/files/v3.10/cmake-3.10.0-rc3-Linux-x86_64.sh
+  - chmod +x cmake-3.10.0-Linux-x86_64.sh
+  - ./cmake-3.10.0-rc3-Linux-x86_64.sh --skip-license --include-subdir
+  - sudo ln -s ./cmake-3.6.2-Linux-x86_64/bin/* /usr/local/bin
+  - cmake --version
   
   
 script:
