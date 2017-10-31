@@ -26,7 +26,7 @@ elseif(CMAKE_COMPILER_IS_GNUCXX AND (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 
 endif()
 
 add_library(${lib_name} STATIC ${${lib_name}_cpp} ${${lib_name}_hpp} ${${lib_name}_srcs})
-target_link_libraries(${lib_name} ${${lib_name}_deps})
+target_link_libraries(${lib_name} PUBLIC ${${lib_name}_deps})
 target_include_directories(${lib_name} PUBLIC ${CMAKE_BINARY_DIR}/Shared ${Protobuf_INCLUDE_DIRS})
 
 MESSAGE(STATUS "Deps: " ${${lib_name}_deps})
