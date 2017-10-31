@@ -1,5 +1,5 @@
 #include <QtTest>
-#include "ProtoFiles/AddressBook.pb.h"
+#include "ProtoFiles/addressbook.pb.h"
 
 class ProtoFilesTest : public QObject
 {
