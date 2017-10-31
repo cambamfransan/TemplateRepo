@@ -16,14 +16,14 @@ install:
   - sudo apt-get remove cmake
   - sudo chmod 777 cmake-3.10.0-rc3-Linux-x86_64.sh
   - ./cmake-3.10.0-rc3-Linux-x86_64.sh --skip-license --include-subdir
-  - sudo ln -s ~/cmake-3.10.0-Linux-x86_64/bin/cmake /usr/bin
-  - ~/cmake-3.10.0-Linux-x86_64/bin/cmake --version
+  - sudo ln -s ~/cmake-3.10.0-rc3-Linux-x86_64/bin/cmake /usr/bin
+  - ~/cmake-3.10.0-rc3-Linux-x86_64/bin/cmake --version
   
   
 script:
  - cd ../
  - mkdir _bld && cd _bld
- - ~/TemplateRepo/cmake-3.10.0-Linux-x86_64/bin/cmake ../TemplateRepo/
+ - ~/../cmake-3.10.0-rc3-Linux-x86_64/bin/cmake ../TemplateRepo/
  - make
  - make install
  
