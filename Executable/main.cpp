@@ -11,11 +11,9 @@ void promptForAddress(tutorial::Person* person) {
   std::cin.ignore(256, '\n');
 
   std::cout << "Enter name: ";
-  std::string name;
-  std::getline(std::cin, name);
-  person->set_name(name);
+  std::getline(std::cin, *person->mutable_name());
 
- /* std::cout << "Enter email address (blank for none): ";
+  std::cout << "Enter email address (blank for none): ";
   std::string email;
   getline(std::cin, email);
   if(!email.empty()){
@@ -46,7 +44,7 @@ void promptForAddress(tutorial::Person* person) {
     } else {
       std::cout << "Unknown phone type. Using default." << std::endl;
     }
-  }*/
+  }
 }
 
 #include <iostream>
@@ -68,31 +66,31 @@ int main(int argc, char * argv[])
     return -1;
   }
 
-  //tutorial::AddressBook address_book;
+  tutorial::AddressBook address_book;
+  {
+    std::fstream input(argv[1], std::ios::in | std::ios::binary);
+    if(!input) 
+    {
+      std::cout << argv[1] << ": File not found. Creating a new file." <<
+        std::endl;
+    }
+    //else if (!address_book.ParseFromIstream(&input)) 
+    //{
+    //  std::cout << "Failed to parse address book." << std::endl;
+    //  return -1;
+    //}
+  }
+  //std::cout << address_book.DebugString() << std::endl;
+
+  promptForAddress(address_book.add_people());
+
+  std::fstream output(argv[1], std::ios::out | std::ios::trunc | std::ios::binary);
+  //if(!address_book.SerializeToOstream(&output))
   //{
-  //  std::fstream input(argv[1], std::ios::in | std::ios::binary);
-  //  if(!input) 
-  //  {
-  //    std::cout << argv[1] << ": File not found. Creating a new file." <<
-  //      std::endl;
-  //  }
-  //  //else if (!address_book.ParseFromIstream(&input)) 
-  //  //{
-  //  //  std::cout << "Failed to parse address book." << std::endl;
-  //  //  return -1;
-  //  //}
+  //  std::cerr << "Failed to write address book. " << std::endl;
+  //  return -1;
   //}
-  ////std::cout << address_book.DebugString() << std::endl;
-
-  //promptForAddress(address_book.add_people());
-
-  //std::fstream output(argv[1], std::ios::out | std::ios::trunc | std::ios::binary);
-  ////if(!address_book.SerializeToOstream(&output))
-  ////{
-  ////  std::cerr << "Failed to write address book. " << std::endl;
-  ////  return -1;
-  ////}
-  ////google::protobuf::ShutdownProtobufLibrary();
+  //google::protobuf::ShutdownProtobufLibrary();
 
   return 0;
 }
