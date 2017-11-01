@@ -11,7 +11,9 @@ void promptForAddress(tutorial::Person* person) {
   std::cin.ignore(256, '\n');
 
   std::cout << "Enter name: ";
-  std::getline(std::cin, *person->mutable_name());
+  std::string name;
+  std::getline(std::cin, name);
+  person->set_name(name);
 
  /* std::cout << "Enter email address (blank for none): ";
   std::string email;
