@@ -34,17 +34,17 @@ void ProtoFilesTest::cleanupTestCase()
 
 void ProtoFilesTest::checkAddressBook()
 {
-  tutorial::Person person;
-  person.set_email("cameron.frandsen1@gmail.com");
-  person.set_id(1);
-  person.set_name("Cameron Frandsen");
+//  tutorial::Person person;
+//  person.set_email("cameron.frandsen1@gmail.com");
+//  person.set_id(1);
+//  person.set_name("Cameron Frandsen");
 
   //auto sString = person.SerializeAsString();
   //tutorial::Person returnedMsg;
   //returnedMsg.ParseFromString(sString);
-  QVERIFY(person.id() == 1);
-  QVERIFY(person.email() == "cameron.frandsen1@gmail.com");
-  QVERIFY(person.name() == "Cameron Frandsen");
+//  QVERIFY(person.id() == 1);
+//  QVERIFY(person.email() == "cameron.frandsen1@gmail.com");
+ // QVERIFY(person.name() == "Cameron Frandsen");
 }
 
 QTEST_APPLESS_MAIN(ProtoFilesTest)
