@@ -4,11 +4,11 @@
 #include "ProtoFiles/addressbook.pb.h"
 
 void promptForAddress(tutorial::Person* person) {
- /* std::cout << "Enter person ID number: ";
+  std::cout << "Enter person ID number: ";
   int id;
   std::cin >> id;
   person->set_id(id);
-  std::cin.ignore(256, '\n');
+ /* std::cin.ignore(256, '\n');
 
   std::cout << "Enter name: ";
   std::getline(std::cin, *person->mutable_name());

@@ -27,3 +27,4 @@ script:
  - make
  - make install
  - make test
+ 
