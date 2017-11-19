@@ -27,23 +27,10 @@ void promptForAddress(tutorial::Person* person) {
     if (number.empty()) {
       break;
     }
-    tutorial::Person::PhoneNumber* phone_number = person->add_phones();
-    phone_number->set_number(number);
-
 
     std::cout << "Is this a mobile, home, or work phone? ";
     std::string type;
     std::getline(std::cin, type);
-    if(type == "mobile")
-    {
-      phone_number->set_type(tutorial::Person::MOBILE);
-    } else if (type == "home") {
-      phone_number->set_type(tutorial::Person::HOME);
-    } else if (type == "work") {
-      phone_number->set_type(tutorial::Person::WORK);
-    } else {
-      std::cout << "Unknown phone type. Using default." << std::endl;
-    }
   }
 }
 
@@ -51,15 +38,6 @@ void promptForAddress(tutorial::Person* person) {
 
 int main(int argc, char * argv[])
 {
- // iboost::asio::io_service io_service;
- // for(int x = 0; x < 42; ++x)
- // {
- //   io_service.poll();
- //   std::cout << "Counter " << x << std::endl;
- // }
-
-  
-
   if(argc != 2)
   {
     std::cout << "Usage: " << argv[0] << " ADDRESS_BOOK_FILE" << std::endl;
@@ -80,9 +58,6 @@ int main(int argc, char * argv[])
     //  return -1;
     //}
   }
-  //std::cout << address_book.DebugString() << std::endl;
-
-  promptForAddress(address_book.add_people());
 
   std::fstream output(argv[1], std::ios::out | std::ios::trunc | std::ios::binary);
   //if(!address_book.SerializeToOstream(&output))
