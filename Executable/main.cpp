@@ -19,6 +19,7 @@ void promptForAddress(tutorial::Person* person) {
   if(!email.empty()){
     person->set_email(email);
   }
+  // lets try a build?
 
   while(true) {
     std::cout << "Enter a phone number: ";
