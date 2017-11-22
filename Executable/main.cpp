@@ -19,7 +19,6 @@ void promptForAddress(tutorial::Person* person) {
   if(!email.empty()){
     person->set_email(email);
   }
-  // lets show dana
 
   while(true) {
     std::cout << "Enter a phone number: ";
