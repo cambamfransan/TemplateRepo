@@ -1,32 +1,27 @@
 language: cpp
-compilers: gcc
+compiler: gcc
 sudo: required
 
-before_install:
-# - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
-# - sudo apt-get update -qq
-# - sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
-# - sudo apt-get install qt5-default qttools5-dev-tools
- 
-#install:
+install:
+#  - cmake --version
 #  - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
 #  - tar -xzvf protobuf-cpp-3.4.0.tar.gz
 #  - pushd protobuf-3.4.0 && ./configure --prefix=/usr && make && sudo make install && popd
-
-addons:
-    apt:
-        packages:
-         - cmake
-
+  - wget https://cmake.org/files/v3.10/cmake-3.10.0-rc3-Linux-x86_64.sh
+  - sudo apt-get remove cmake
+  - sudo chmod 777 cmake-3.10.0-rc3-Linux-x86_64.sh
+  - ./cmake-3.10.0-rc3-Linux-x86_64.sh --skip-license --include-subdir
+  - ./cmake-3.10.0-rc3-Linux-x86_64/bin/cmake --version
+  - pwd
+  - ls  
+  - sudo apt-get install qt5-default libqt5core5a libqt5network5 qtcreator --yes
+  - protoc --version
+  
 script:
-# - wget https://github.com/google/protobuf/releases/download/v3.4.0/protobuf-cpp-3.4.0.tar.gz
-# - tar -xzvf protobuf-cpp-3.4.0.tar.gz
-# - cd protobuf-3.4.0 && ./configure --prefix=/usr && make && sudo make install
-# - sudo apt-get install libprotobuf-dev
-# - sudo ldconfig
-# - protoc --version
  - cd ../
  - mkdir _bld && cd _bld
- - cmake ../TemplateRepo/
+ - ./../TemplateRepo/cmake-3.10.0-rc3-Linux-x86_64/bin/cmake ../TemplateRepo/
  - make
+ - make install
+ - make test
  
